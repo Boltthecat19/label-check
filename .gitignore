@@ -5,3 +5,5 @@ tests/fixtures/*.png
 tests/fixtures/*.jpg
 *.egg-info/
 .pytest_cache/
+
+models/
