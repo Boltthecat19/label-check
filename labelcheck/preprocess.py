@@ -13,11 +13,15 @@ import numpy as np
 from PIL import Image, ImageOps
 
 MAX_SIDE = 2000
+MAX_PIXELS = 60_000_000  # refuse decompression bombs before decoding
 
 
 def preprocess(image_bytes: bytes) -> tuple[np.ndarray, list[str]]:
     warnings: list[str] = []
-    pil = ImageOps.exif_transpose(Image.open(io.BytesIO(image_bytes))).convert("RGB")
+    opened = Image.open(io.BytesIO(image_bytes))  # reads the header only
+    if opened.width * opened.height > MAX_PIXELS:
+        raise ValueError("image too large")
+    pil = ImageOps.exif_transpose(opened).convert("RGB")
     img = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
     h, w = img.shape[:2]
     scale = MAX_SIDE / max(h, w)

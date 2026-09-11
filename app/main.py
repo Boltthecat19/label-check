@@ -8,8 +8,18 @@ from fastapi import FastAPI, File, Form, Request, UploadFile
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.concurrency import run_in_threadpool
 
 from labelcheck.batch import CSV_COLUMNS, BatchStore, export_csv, parse_csv
+from labelcheck.limits import (
+    MAX_BATCH_BYTES,
+    MAX_BATCH_ROWS,
+    OCR_WAIT_SECONDS,
+    batch_limiter,
+    client_key,
+    ocr_slots,
+    verify_limiter,
+)
 from labelcheck.llm import get_llm
 from labelcheck.models import Application, BeverageType
 from labelcheck.verify import verify
@@ -33,8 +43,18 @@ tpl.env.globals["field_names"] = FIELD_NAMES
 batches = BatchStore()
 
 
-def _error(request: Request, message: str) -> HTMLResponse:
-    return tpl.TemplateResponse(request, "_error.html", {"message": message})
+def _error(request: Request, message: str, status: int = 200) -> HTMLResponse:
+    return tpl.TemplateResponse(request, "_error.html", {"message": message}, status_code=status)
+
+
+def _checked(app_fields: Application, data: bytes):
+    """Run one verification inside an OCR slot; returns None when the box is saturated."""
+    if not ocr_slots.acquire(timeout=OCR_WAIT_SECONDS):
+        return None
+    try:
+        return verify(app_fields, data, llm=get_llm())
+    finally:
+        ocr_slots.release()
 
 
 @app.get("/health")
@@ -60,6 +80,8 @@ async def do_verify(
     origin_country: str = Form(""),
     beverage_type: str = Form("spirits"),
 ):
+    if not verify_limiter.allow(client_key(request)):
+        return _error(request, "Too many checks in a short time. Please wait a minute and try again.", 429)
     data = await image.read()
     if len(data) > MAX_BYTES:
         return _error(request, "That image is larger than 10 MB. Please use a smaller file.")
@@ -82,9 +104,11 @@ async def do_verify(
         beverage_type=beverage_type,
     )
     try:
-        verdict = verify(application, data, llm=get_llm())
+        verdict = await run_in_threadpool(_checked, application, data)
     except Exception:
         return _error(request, "We could not read this image. Try a clearer photo saved as JPG or PNG.")
+    if verdict is None:
+        return _error(request, "The checker is busy right now. Please try again in a few seconds.", 503)
     return tpl.TemplateResponse(
         request, "_result.html", {"v": verdict, "seconds": f"{verdict.processing_ms / 1000:.1f}"}
     )
@@ -101,15 +125,29 @@ async def batch_start(
     sheet: Annotated[UploadFile, File()],
     images: Annotated[list[UploadFile], File()],
 ):
+    if not batch_limiter.allow(client_key(request)):
+        return _error(
+            request, "Too many batches in a short time. Please wait a few minutes and try again.", 429
+        )
     try:
         apps = parse_csv(await sheet.read())
     except (ValueError, UnicodeDecodeError) as e:
         return _error(request, f"We could not use that spreadsheet. {e}")
+    if len(apps) > MAX_BATCH_ROWS:
+        return _error(
+            request, f"That spreadsheet has {len(apps)} rows. Please send at most {MAX_BATCH_ROWS} at a time."
+        )
     files: dict[str, bytes] = {}
+    total = 0
     for up in images:
         data = await up.read()
         if len(data) > MAX_BYTES:
             return _error(request, f"{up.filename} is larger than 10 MB. Please use smaller images.")
+        total += len(data)
+        if total > MAX_BATCH_BYTES:
+            return _error(
+                request, "The images add up to more than 200 MB. Please send fewer or smaller images."
+            )
         files[Path(up.filename or "").name] = data
     missing = [a.image for a in apps if a.image not in files]
     if len(missing) == len(apps):

@@ -7,12 +7,13 @@ drops in flight batches. Documented as a prototype limitation.
 
 import csv
 import io
+import secrets
 import threading
 import time
-import uuid
 
 from pydantic import BaseModel, Field
 
+from labelcheck.limits import OCR_WAIT_SECONDS, ocr_slots
 from labelcheck.models import Application, Verdict
 from labelcheck.verify import verify
 
@@ -93,7 +94,7 @@ class BatchStore:
 
     def create(self, apps: list[Application], images: dict[str, bytes], llm=None) -> str:
         self.evict()
-        job = BatchJob(id=uuid.uuid4().hex[:12], total=len(apps))
+        job = BatchJob(id=secrets.token_urlsafe(16), total=len(apps))
         with self._lock:
             self._jobs[job.id] = job
         threading.Thread(target=self._run, args=(job, apps, images, llm), daemon=True).start()
@@ -109,7 +110,11 @@ class BatchStore:
                 )
             else:
                 try:
-                    job.verdicts.append(verify(app, data, llm=llm))
+                    ocr_slots.acquire(timeout=OCR_WAIT_SECONDS)
+                    try:
+                        job.verdicts.append(verify(app, data, llm=llm))
+                    finally:
+                        ocr_slots.release()
                 except Exception:
                     job.errors.append(f"{app.application_id}: could not read image '{app.image}'.")
                     job.verdicts.append(
