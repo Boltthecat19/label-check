@@ -14,17 +14,24 @@ c = TestClient(app)
 
 CSV = (
     "application_id,image,brand,class_type,abv_percent,net_contents,bottler,is_import,origin_country,beverage_type\n"
-    "A1,good.png,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45,750 mL,\"Old Tom Distillery, Bardstown, KY\",no,,spirits\n"
-    "A2,bad.png,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,40,750 mL,\"Old Tom Distillery, Bardstown, KY\",no,,spirits\n"
+    "A1,good.png,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,45,750 mL,"
+    '"Old Tom Distillery, Bardstown, KY",no,,spirits\n'
+    "A2,bad.png,OLD TOM DISTILLERY,Kentucky Straight Bourbon Whiskey,40,750 mL,"
+    '"Old Tom Distillery, Bardstown, KY",no,,spirits\n'
     "A3,missing.png,OLD TOM DISTILLERY,,45,750 mL,,no,,spirits\n"
 )
 
 
 def test_batch_end_to_end():
     good = render(LINES, warning=WARNING_TEXT)
-    r = c.post("/batch", files=[("sheet", ("apps.csv", CSV.encode(), "text/csv")),
-                                ("images", ("good.png", good, "image/png")),
-                                ("images", ("bad.png", good, "image/png"))])
+    r = c.post(
+        "/batch",
+        files=[
+            ("sheet", ("apps.csv", CSV.encode(), "text/csv")),
+            ("images", ("good.png", good, "image/png")),
+            ("images", ("bad.png", good, "image/png")),
+        ],
+    )
     assert r.status_code == 200 and 'hx-get="/batch/' in r.text
     job_id = r.text.split('hx-get="/batch/')[1].split('"')[0]
     for _ in range(60):
@@ -41,7 +48,10 @@ def test_batch_end_to_end():
 
 
 def test_batch_rejects_bad_sheet():
-    r = c.post("/batch", files=[("sheet", ("apps.csv", b"nope\n1\n", "text/csv")), ("images", ("x.png", b"x", "image/png"))])
+    r = c.post(
+        "/batch",
+        files=[("sheet", ("apps.csv", b"nope\n1\n", "text/csv")), ("images", ("x.png", b"x", "image/png"))],
+    )
     assert "could not use that spreadsheet" in r.text.lower()
 
 
@@ -53,11 +63,13 @@ def test_llm_off_by_default(monkeypatch):
 def test_llm_opinion_and_timeout():
     def ok(request: httpx.Request) -> httpx.Response:
         return httpx.Response(200, json={"choices": [{"message": {"content": "Yes, same brand.\nmore"}}]})
+
     a = LlmAssist("http://llm", "m", transport=httpx.MockTransport(ok))
     fr = FieldResult(field="brand", status=Status.REVIEW, expected="Stone's Throw", found="STONE'S THROW")
     assert a.opinion(fr, "text") == "Yes, same brand."
 
     def boom(request: httpx.Request) -> httpx.Response:
         raise httpx.ConnectTimeout("blocked")
+
     b = LlmAssist("http://llm", "m", transport=httpx.MockTransport(boom))
     assert b.opinion(fr, "text") is None

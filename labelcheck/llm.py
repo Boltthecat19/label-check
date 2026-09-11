@@ -13,7 +13,9 @@ import httpx
 
 from labelcheck.models import FieldResult
 
-_SYSTEM = "You help a compliance agent compare an alcohol label to its application. Answer in one plain sentence."
+_SYSTEM = (
+    "You help a compliance agent compare an alcohol label to its application. Answer in one plain sentence."
+)
 
 
 class LlmAssist:
@@ -25,16 +27,21 @@ class LlmAssist:
 
     def opinion(self, result: FieldResult, ocr_text: str) -> str | None:
         prompt = (
-            f"Field: {result.field}. Application says: {result.expected!r}. Label text nearby: {result.found!r}. "
+            f"Field: {result.field}. Application says: {result.expected!r}. "
+            f"Label text nearby: {result.found!r}. "
             f"Tool note: {result.note} Full label text (may contain OCR errors):\n{ocr_text[:1500]}\n"
             "Is the label value the same as the application value? One sentence."
         )
         headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
         try:
             r = self.client.post(
-                f"{self.base_url}/chat/completions", headers=headers,
-                json={"model": self.model, "temperature": 0,
-                      "messages": [{"role": "system", "content": _SYSTEM}, {"role": "user", "content": prompt}]},
+                f"{self.base_url}/chat/completions",
+                headers=headers,
+                json={
+                    "model": self.model,
+                    "temperature": 0,
+                    "messages": [{"role": "system", "content": _SYSTEM}, {"role": "user", "content": prompt}],
+                },
             )
             r.raise_for_status()
             text = r.json()["choices"][0]["message"]["content"].strip()

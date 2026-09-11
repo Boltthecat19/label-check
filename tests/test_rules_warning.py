@@ -31,7 +31,9 @@ def test_warning_tolerates_line_breaks():
 
 
 def test_bottler_pass():
-    r = check_bottler("Old Tom Distillery, Bardstown, KY", "Distilled and bottled by Old Tom Distillery, Bardstown, KY")
+    r = check_bottler(
+        "Old Tom Distillery, Bardstown, KY", "Distilled and bottled by Old Tom Distillery, Bardstown, KY"
+    )
     assert r.status == Status.PASS
 
 

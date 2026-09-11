@@ -1,6 +1,7 @@
 """Label Check web app: one page for a single label, one for a batch."""
 
 from pathlib import Path
+from typing import Annotated
 
 import pytesseract
 from fastapi import FastAPI, File, Form, Request, UploadFile
@@ -17,8 +18,12 @@ BASE = Path(__file__).parent
 VERSION = "0.1.0"
 MAX_BYTES = 10 * 1024 * 1024
 FIELD_NAMES = {
-    "brand": "Brand name", "abv": "Alcohol content", "net_contents": "Net contents",
-    "bottler": "Bottler or producer", "origin": "Country of origin", "warning": "Government warning",
+    "brand": "Brand name",
+    "abv": "Alcohol content",
+    "net_contents": "Net contents",
+    "bottler": "Bottler or producer",
+    "origin": "Country of origin",
+    "warning": "Government warning",
 }
 
 app = FastAPI(title="Label Check", version=VERSION)
@@ -45,7 +50,7 @@ def index(request: Request):
 @app.post("/verify", response_class=HTMLResponse)
 async def do_verify(
     request: Request,
-    image: UploadFile = File(...),
+    image: Annotated[UploadFile, File()],
     brand: str = Form(""),
     class_type: str = Form(""),
     abv_percent: str = Form(""),
@@ -67,8 +72,14 @@ async def do_verify(
     if beverage_type not in [b.value for b in BeverageType]:
         beverage_type = "spirits"
     application = Application(
-        brand=brand, class_type=class_type, abv_percent=abv, net_contents=net_contents, bottler=bottler,
-        is_import=bool(is_import), origin_country=origin_country, beverage_type=beverage_type,
+        brand=brand,
+        class_type=class_type,
+        abv_percent=abv,
+        net_contents=net_contents,
+        bottler=bottler,
+        is_import=bool(is_import),
+        origin_country=origin_country,
+        beverage_type=beverage_type,
     )
     try:
         verdict = verify(application, data, llm=get_llm())
@@ -85,7 +96,11 @@ def batch_page(request: Request):
 
 
 @app.post("/batch", response_class=HTMLResponse)
-async def batch_start(request: Request, sheet: UploadFile = File(...), images: list[UploadFile] = File(...)):
+async def batch_start(
+    request: Request,
+    sheet: Annotated[UploadFile, File()],
+    images: Annotated[list[UploadFile], File()],
+):
     try:
         apps = parse_csv(await sheet.read())
     except (ValueError, UnicodeDecodeError) as e:
@@ -118,5 +133,8 @@ def batch_export(job_id: str):
     job = batches.get(job_id)
     if job is None:
         return PlainTextResponse("Batch not found.", status_code=404)
-    return PlainTextResponse(export_csv(job), media_type="text/csv",
-                             headers={"Content-Disposition": f'attachment; filename="labelcheck-{job_id}.csv"'})
+    return PlainTextResponse(
+        export_csv(job),
+        media_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="labelcheck-{job_id}.csv"'},
+    )

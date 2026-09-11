@@ -20,7 +20,11 @@ from labelcheck.rules.warning import WARNING_TEXT  # noqa: E402
 
 BOLD = "/usr/share/fonts/liberation/LiberationSans-Bold.ttf"
 REG = "/usr/share/fonts/liberation/LiberationSans-Regular.ttf"
-PHRASE = {"spirits": "Distilled and bottled by", "wine": "Produced and bottled by", "beer": "Brewed and bottled by"}
+PHRASE = {
+    "spirits": "Distilled and bottled by",
+    "wine": "Produced and bottled by",
+    "beer": "Brewed and bottled by",
+}
 
 
 def lines_for(e: dict) -> tuple[list[str], str | None]:
@@ -101,9 +105,14 @@ def main(out_dir: Path) -> list[dict]:
         lines, warning = lines_for(e)
         im = render(lines, warning)
         app = {
-            "application_id": e["id"], "brand": e["brand"], "class_type": e["class_type"],
-            "abv_percent": e.get("abv"), "net_contents": e["net_contents"], "bottler": e["bottler"],
-            "is_import": bool(e.get("is_import")), "origin_country": e.get("origin_country", ""),
+            "application_id": e["id"],
+            "brand": e["brand"],
+            "class_type": e["class_type"],
+            "abv_percent": e.get("abv"),
+            "net_contents": e["net_contents"],
+            "bottler": e["bottler"],
+            "is_import": bool(e.get("is_import")),
+            "origin_country": e.get("origin_country", ""),
             "beverage_type": e["beverage_type"],
         }
         files = {"clean": _png(im), **augment(im)}
@@ -111,8 +120,15 @@ def main(out_dir: Path) -> list[dict]:
             ext = "jpg" if variant == "jpg40" else "png"
             name = f"{e['id']}_{variant}.{ext}"
             (out_dir / name).write_bytes(data)
-            manifest.append({"file": name, "variant": variant, "application": app,
-                             "expect": e.get("expect", {}), "overall": e["overall"]})
+            manifest.append(
+                {
+                    "file": name,
+                    "variant": variant,
+                    "application": app,
+                    "expect": e.get("expect", {}),
+                    "overall": e["overall"],
+                }
+            )
     (out_dir / "manifest.json").write_text(json.dumps(manifest, indent=1))
     return manifest
 

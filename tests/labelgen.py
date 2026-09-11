@@ -4,7 +4,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from tools.make_labels import _png, render as _render  # noqa: E402
+from tools.make_labels import _png  # noqa: E402
+from tools.make_labels import render as _render
 
 
 def render(lines: list[str], warning: str | None = None) -> bytes:

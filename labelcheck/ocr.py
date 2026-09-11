@@ -20,7 +20,9 @@ def _words(img: np.ndarray, psm: int) -> list[tuple[tuple[int, int, int], str, f
     d = pytesseract.image_to_data(img, lang="eng", config=f"--psm {psm}", output_type=pytesseract.Output.DICT)
     return [
         ((b, p, ln), w, float(c))
-        for b, p, ln, w, c in zip(d["block_num"], d["par_num"], d["line_num"], d["text"], d["conf"])
+        for b, p, ln, w, c in zip(
+            d["block_num"], d["par_num"], d["line_num"], d["text"], d["conf"], strict=True
+        )
         if str(w).strip() and float(c) >= 0
     ]
 

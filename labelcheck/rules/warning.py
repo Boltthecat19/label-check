@@ -41,28 +41,48 @@ def check_warning(ocr_text_raw: str) -> FieldResult:
     seg = _locate(ocr_text_raw)
     if not seg or fuzz.partial_ratio(normalize(seg), normalize(WARNING_TEXT)) < 60:
         return FieldResult(
-            field="warning", status=Status.FAIL, expected=WARNING_TEXT, found=seg[:120],
+            field="warning",
+            status=Status.FAIL,
+            expected=WARNING_TEXT,
+            found=seg[:120],
             note="Government warning statement not found on the label." + _BOLD,
         )
     header = re.match(r"GOVERNMENT WARNING([:;.,]?)", seg)
     if not header:
         shown = seg[: len(_HEADER)]
         return FieldResult(
-            field="warning", status=Status.FAIL, expected=WARNING_TEXT, found=seg[:160], confidence=0.9,
-            note=f"Header must read exactly 'GOVERNMENT WARNING:' in all caps; the label shows '{shown}'." + _BOLD,
+            field="warning",
+            status=Status.FAIL,
+            expected=WARNING_TEXT,
+            found=seg[:160],
+            confidence=0.9,
+            note=f"Header must read exactly 'GOVERNMENT WARNING:' in all caps; the label shows '{shown}'."
+            + _BOLD,
         )
     punct = header.group(1)
-    punct_note = "" if punct == ":" else f" The colon after the header was read as '{punct or ' '}'; confirm it is a colon."
+    punct_note = (
+        ""
+        if punct == ":"
+        else f" The colon after the header was read as '{punct or ' '}'; confirm it is a colon."
+    )
     exp_n, seg_n = normalize(WARNING_TEXT), normalize(seg)
     if seg_n.startswith(exp_n):
         if punct_note:
             return FieldResult(
-                field="warning", status=Status.REVIEW, expected=WARNING_TEXT,
-                found=seg[: len(WARNING_TEXT)], confidence=0.95, note="Statement text is exact." + punct_note + _BOLD,
+                field="warning",
+                status=Status.REVIEW,
+                expected=WARNING_TEXT,
+                found=seg[: len(WARNING_TEXT)],
+                confidence=0.95,
+                note="Statement text is exact." + punct_note + _BOLD,
             )
         return FieldResult(
-            field="warning", status=Status.PASS, expected=WARNING_TEXT,
-            found=seg[: len(WARNING_TEXT)], confidence=1.0, note="Statement text is exact." + _BOLD,
+            field="warning",
+            status=Status.PASS,
+            expected=WARNING_TEXT,
+            found=seg[: len(WARNING_TEXT)],
+            confidence=1.0,
+            note="Statement text is exact." + _BOLD,
         )
     window = seg_n[: len(exp_n) + 10]
     ratio = fuzz.ratio(exp_n, window)
@@ -71,12 +91,19 @@ def check_warning(ocr_text_raw: str) -> FieldResult:
     found = seg[: len(WARNING_TEXT) + 10]
     if _looks_like_ocr_noise(diff):
         return FieldResult(
-            field="warning", status=Status.REVIEW, expected=WARNING_TEXT, found=found,
+            field="warning",
+            status=Status.REVIEW,
+            expected=WARNING_TEXT,
+            found=found,
             confidence=round(ratio / 100, 2),
-            note=f"Statement nearly matches; the differences look like OCR misreads ({shown}). Agent confirms the wording visually." + _BOLD,
+            note=f"Statement nearly matches; the differences look like OCR misreads ({shown}). "
+            "Agent confirms the wording visually." + _BOLD,
         )
     return FieldResult(
-        field="warning", status=Status.FAIL, expected=WARNING_TEXT, found=found,
+        field="warning",
+        status=Status.FAIL,
+        expected=WARNING_TEXT,
+        found=found,
         confidence=round(ratio / 100, 2),
         note=f"Statement wording differs from the required text. Differences: {shown}." + _BOLD,
     )
@@ -90,9 +117,9 @@ def _looks_like_ocr_noise(diff: list[str]) -> bool:
     """
     removed = [d[2:] for d in diff if d[0] == "-"]
     added = [d[2:] for d in diff if d[0] == "+"]
-    pairs = list(zip(removed, added))
+    pairs = list(zip(removed, added, strict=False))  # extra tokens are judged as strays below
     for a, b in pairs:
         if Levenshtein.distance(a, b) > max(1, min(len(a), len(b)) // 4 + 1):
             return False
-    strays = removed[len(pairs):] + added[len(pairs):]
+    strays = removed[len(pairs) :] + added[len(pairs) :]
     return all(len(s) <= 2 for s in strays)

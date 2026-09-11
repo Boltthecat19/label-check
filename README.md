@@ -44,6 +44,7 @@ CSV columns: `application_id, image, brand, class_type, abv_percent, net_content
 python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 .venv/bin/python tools/make_labels.py tests/fixtures
 .venv/bin/pytest
+.venv/bin/ruff check . && .venv/bin/ruff format --check .
 ```
 
 100 synthetic labels: 20 applications, half with a seeded defect, under five photo conditions (clean, rotated, blurred, glare, heavy JPEG). Tests require every clean label to get the right verdict, no defect to pass on a noisy photo, and 95th percentile time under five seconds.

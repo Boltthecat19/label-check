@@ -19,10 +19,15 @@ def check_origin(is_import: bool, country: str, ocr_text: str) -> FieldResult:
         return FieldResult(field="origin", status=Status.PASS, expected=country, found=found, confidence=1.0)
     if m:
         return FieldResult(
-            field="origin", status=Status.FAIL, expected=country, found=found,
+            field="origin",
+            status=Status.FAIL,
+            expected=country,
+            found=found,
             note="Country of origin on the label differs from the application.",
         )
     return FieldResult(
-        field="origin", status=Status.FAIL, expected=country,
+        field="origin",
+        status=Status.FAIL,
+        expected=country,
         note="Imported product but no country of origin statement was found on the label.",
     )

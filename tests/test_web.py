@@ -18,7 +18,11 @@ def test_index_has_form_sections():
 
 
 def test_verify_rejects_non_image():
-    r = c.post("/verify", data={"brand": "X", "beverage_type": "spirits"}, files={"image": ("a.txt", b"hello", "text/plain")})
+    r = c.post(
+        "/verify",
+        data={"brand": "X", "beverage_type": "spirits"},
+        files={"image": ("a.txt", b"hello", "text/plain")},
+    )
     assert r.status_code == 200 and "could not read this image" in r.text.lower()
 
 
@@ -31,8 +35,13 @@ def test_verify_good_label_renders_pass():
     img = render(LINES, warning=WARNING_TEXT)
     r = c.post(
         "/verify",
-        data={"brand": "OLD TOM DISTILLERY", "abv_percent": "45", "net_contents": "750 mL",
-              "bottler": "Old Tom Distillery, Bardstown, KY", "beverage_type": "spirits"},
+        data={
+            "brand": "OLD TOM DISTILLERY",
+            "abv_percent": "45",
+            "net_contents": "750 mL",
+            "bottler": "Old Tom Distillery, Bardstown, KY",
+            "beverage_type": "spirits",
+        },
         files={"image": ("l.png", img, "image/png")},
     )
-    assert r.status_code == 200 and "Result: <span class=\"pass\">PASS" in r.text and "Checked in" in r.text
+    assert r.status_code == 200 and 'Result: <span class="pass">PASS' in r.text and "Checked in" in r.text

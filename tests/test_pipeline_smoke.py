@@ -1,4 +1,3 @@
-
 from labelcheck.models import Application, Status
 from labelcheck.rules.warning import WARNING_TEXT
 from labelcheck.verify import verify
@@ -12,8 +11,12 @@ LINES = [
     "Distilled and bottled by Old Tom Distillery, Bardstown, KY",
 ]
 APP = Application(
-    brand="OLD TOM DISTILLERY", class_type="Kentucky Straight Bourbon Whiskey", abv_percent=45.0,
-    net_contents="750 mL", bottler="Old Tom Distillery, Bardstown, KY", beverage_type="spirits",
+    brand="OLD TOM DISTILLERY",
+    class_type="Kentucky Straight Bourbon Whiskey",
+    abv_percent=45.0,
+    net_contents="750 mL",
+    bottler="Old Tom Distillery, Bardstown, KY",
+    beverage_type="spirits",
 )
 
 

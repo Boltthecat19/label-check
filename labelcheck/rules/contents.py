@@ -26,13 +26,17 @@ def check_contents(expected: str, ocr_text: str) -> FieldResult:
     exp_ml = parse_ml(expected)
     if exp_ml is None:
         return FieldResult(
-            field="net_contents", status=Status.NOT_CHECKED, expected=expected,
+            field="net_contents",
+            status=Status.NOT_CHECKED,
+            expected=expected,
             note="Could not read net contents on the application.",
         )
     found_ml, found = _find(ocr_text)
     if found_ml is None:
         return FieldResult(
-            field="net_contents", status=Status.REVIEW, expected=expected,
+            field="net_contents",
+            status=Status.REVIEW,
+            expected=expected,
             note="No net contents found on the label. Agent confirms.",
         )
     if abs(found_ml - exp_ml) <= max(1.0, exp_ml * 0.01):
@@ -40,6 +44,10 @@ def check_contents(expected: str, ocr_text: str) -> FieldResult:
             field="net_contents", status=Status.PASS, expected=expected, found=found, confidence=1.0
         )
     return FieldResult(
-        field="net_contents", status=Status.FAIL, expected=expected, found=found, confidence=1.0,
+        field="net_contents",
+        status=Status.FAIL,
+        expected=expected,
+        found=found,
+        confidence=1.0,
         note="Net contents on the label differ from the application.",
     )
