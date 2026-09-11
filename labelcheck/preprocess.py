@@ -26,6 +26,8 @@ def preprocess(image_bytes: bytes) -> tuple[np.ndarray, list[str]]:
     elif max(h, w) < 800:
         warnings.append("The image is small; results may be less reliable.")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Non local means smooths JPEG block noise while keeping letter edges; h=10 is mild.
+    gray = cv2.fastNlMeansDenoising(gray, None, h=10, templateWindowSize=7, searchWindowSize=21)
     gray = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)).apply(gray)
     gray = _deskew(gray, warnings)
     binar = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 15)
