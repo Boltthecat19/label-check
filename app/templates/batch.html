@@ -2,21 +2,20 @@
 {% block body %}
 <form hx-post="/batch" hx-target="#result" hx-encoding="multipart/form-data" hx-indicator="#busy" hx-disabled-elt="#go">
   <section class="step">
-    <h2>Step 1. Choose the spreadsheet</h2>
+    <h2>1. Spreadsheet</h2>
     <p>A CSV file with one row per application. The <code>image</code> column names the label file for that row.</p>
     <p class="small">Columns: {{ columns|join(", ") }}. Only brand and image are required.</p>
     <input type="file" name="sheet" accept=".csv,text/csv" required>
   </section>
   <section class="step">
-    <h2>Step 2. Choose the label images</h2>
+    <h2>2. Label images</h2>
     <p>Select all the images at once. File names must match the spreadsheet.</p>
     <input type="file" name="images" accept="image/*" multiple required>
   </section>
-  <section class="step">
-    <h2>Step 3. Check them</h2>
+  <div class="go">
     <button id="go" class="primary" type="submit">Check all labels</button>
     <p id="busy" class="htmx-indicator">Uploading, one moment.</p>
-  </section>
+  </div>
 </form>
 <div id="result"></div>
 {% endblock %}

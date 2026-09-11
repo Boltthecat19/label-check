@@ -12,9 +12,9 @@ def test_health():
     assert c.get("/health").json()["status"] == "ok"
 
 
-def test_index_has_three_steps():
+def test_index_has_form_sections():
     html = c.get("/").text
-    assert "Step 1" in html and "Step 2" in html and "Step 3" in html
+    assert "1. Application" in html and "2. Label image" in html and "Check this label" in html
 
 
 def test_verify_rejects_non_image():

@@ -2,7 +2,7 @@
 {% block body %}
 <form hx-post="/verify" hx-target="#result" hx-encoding="multipart/form-data" hx-indicator="#busy" hx-disabled-elt="#go">
   <section class="step">
-    <h2>Step 1. Enter what the application says</h2>
+    <h2>1. Application</h2>
     <label>Brand name <span class="req">(required)</span>
       <input name="brand" required autocomplete="off" placeholder="OLD TOM DISTILLERY"></label>
     <label>Class or type
@@ -26,16 +26,15 @@
   </section>
 
   <section class="step">
-    <h2>Step 2. Add the label image</h2>
-    <p>Take a photo or choose the label image. JPG or PNG, up to 10 MB.</p>
+    <h2>2. Label image</h2>
+    <p>JPG or PNG, up to 10 MB.</p>
     <input type="file" name="image" accept="image/*" required>
   </section>
 
-  <section class="step">
-    <h2>Step 3. Check it</h2>
+  <div class="go">
     <button id="go" class="primary" type="submit">Check this label</button>
     <p id="busy" class="htmx-indicator">Checking, one moment.</p>
-  </section>
+  </div>
 </form>
 <div id="result"></div>
 {% endblock %}
