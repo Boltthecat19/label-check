@@ -1,0 +1,27 @@
+services:
+  labelcheck:
+    build: .
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    environment:
+      # Leave LLM_BASE_URL empty for the pure offline OCR app.
+      # `docker compose --profile llm up` starts a local model and points the app at it.
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5-1.5b-instruct}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+
+  llm:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    profiles: ["llm"]
+    command: >
+      -m /models/qwen2.5-1.5b-instruct-q4_k_m.gguf
+      --host 0.0.0.0 --port 8080 -c 2048 -t 4 --no-webui
+    volumes:
+      - ./models:/models:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fs http://127.0.0.1:8080/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
