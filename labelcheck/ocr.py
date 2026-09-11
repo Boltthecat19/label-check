@@ -1,7 +1,8 @@
-"""Tesseract wrapper. Returns text, mean word confidence, and elapsed time."""
+"""Tesseract wrapper. One OCR pass returns text, mean word confidence, and elapsed time."""
 
 import time
 from dataclasses import dataclass
+from itertools import groupby
 
 import numpy as np
 import pytesseract
@@ -14,21 +15,32 @@ class OcrResult:
     ms: int
 
 
-def _data(img: np.ndarray, psm: int) -> dict:
-    return pytesseract.image_to_data(
-        img, lang="eng", config=f"--psm {psm}", output_type=pytesseract.Output.DICT
-    )
+def _words(img: np.ndarray, psm: int) -> list[tuple[tuple[int, int, int], str, float]]:
+    """(block, paragraph, line) position, word, confidence for every recognized word."""
+    d = pytesseract.image_to_data(img, lang="eng", config=f"--psm {psm}", output_type=pytesseract.Output.DICT)
+    return [
+        ((b, p, ln), w, float(c))
+        for b, p, ln, w, c in zip(d["block_num"], d["par_num"], d["line_num"], d["text"], d["conf"])
+        if str(w).strip() and float(c) >= 0
+    ]
+
+
+def _text(words: list[tuple[tuple[int, int, int], str, float]]) -> str:
+    """Rebuild lines and paragraphs so the rules see the same layout Tesseract saw."""
+    out, prev_par = [], None
+    for (block, par, _), line in groupby(words, key=lambda w: w[0]):
+        if prev_par is not None and (block, par) != prev_par:
+            out.append("")
+        out.append(" ".join(w for _, w, _ in line))
+        prev_par = (block, par)
+    return "\n".join(out)
 
 
 def run_ocr(img: np.ndarray) -> OcrResult:
     t0 = time.perf_counter()
-    psm = 3  # automatic layout: keeps oversized brand lines that psm 6 drops
-    data = _data(img, psm)
-    words = [w for w, c in zip(data["text"], data["conf"]) if str(w).strip() and float(c) >= 0]
+    words = _words(img, psm=3)  # automatic layout keeps the oversized brand line that psm 6 drops
     if len(words) < 20:
-        psm = 11
-        data = _data(img, psm)
-    text = pytesseract.image_to_string(img, lang="eng", config=f"--psm {psm}")
-    confs = [float(c) for c, w in zip(data["conf"], data["text"]) if str(w).strip() and float(c) >= 0]
+        words = _words(img, psm=11)  # sparse text fallback for labels with little copy
+    confs = [c for _, _, c in words]
     mean = sum(confs) / len(confs) if confs else 0.0
-    return OcrResult(text=text, mean_conf=mean, ms=int((time.perf_counter() - t0) * 1000))
+    return OcrResult(text=_text(words), mean_conf=mean, ms=int((time.perf_counter() - t0) * 1000))

@@ -12,7 +12,6 @@ from rapidfuzz import fuzz
 from labelcheck.models import FieldResult, Status
 from labelcheck.rules.normalize import normalize, normalize_keep_case
 
-PASS_AT = 92
 REVIEW_AT = 75
 
 

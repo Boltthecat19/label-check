@@ -7,6 +7,7 @@ a blocked endpoint (Marcus's firewall) costs at most the 3 second timeout.
 """
 
 import os
+from functools import lru_cache
 
 import httpx
 
@@ -42,7 +43,9 @@ class LlmAssist:
             return None
 
 
+@lru_cache(maxsize=1)
 def get_llm() -> LlmAssist | None:
+    """One shared client for the process; None when no endpoint is configured."""
     url = os.environ.get("LLM_BASE_URL", "").strip()
     if not url:
         return None
