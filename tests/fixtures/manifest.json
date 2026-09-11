@@ -1,0 +1,1802 @@
+[
+ {
+  "file": "spirits_ok_1_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "spirits_ok_1",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_1_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "spirits_ok_1",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_1_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "spirits_ok_1",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_1_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "spirits_ok_1",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_1_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "spirits_ok_1",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_2_import_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "spirits_ok_2_import",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_2_import_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "spirits_ok_2_import",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_2_import_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "spirits_ok_2_import",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_2_import_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "spirits_ok_2_import",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_2_import_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "spirits_ok_2_import",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_3_liter_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "spirits_ok_3_liter",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_3_liter_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "spirits_ok_3_liter",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_3_liter_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "spirits_ok_3_liter",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_3_liter_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "spirits_ok_3_liter",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_3_liter_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "spirits_ok_3_liter",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_4_case_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "spirits_ok_4_case",
+   "brand": "Stone's Throw",
+   "class_type": "Straight Rye Whiskey",
+   "abv_percent": 47.5,
+   "net_contents": "750 mL",
+   "bottler": "Stone's Throw Distilling Co, Denver, CO",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_4_case_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "spirits_ok_4_case",
+   "brand": "Stone's Throw",
+   "class_type": "Straight Rye Whiskey",
+   "abv_percent": 47.5,
+   "net_contents": "750 mL",
+   "bottler": "Stone's Throw Distilling Co, Denver, CO",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_4_case_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "spirits_ok_4_case",
+   "brand": "Stone's Throw",
+   "class_type": "Straight Rye Whiskey",
+   "abv_percent": 47.5,
+   "net_contents": "750 mL",
+   "bottler": "Stone's Throw Distilling Co, Denver, CO",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_4_case_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "spirits_ok_4_case",
+   "brand": "Stone's Throw",
+   "class_type": "Straight Rye Whiskey",
+   "abv_percent": 47.5,
+   "net_contents": "750 mL",
+   "bottler": "Stone's Throw Distilling Co, Denver, CO",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "spirits_ok_4_case_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "spirits_ok_4_case",
+   "brand": "Stone's Throw",
+   "class_type": "Straight Rye Whiskey",
+   "abv_percent": 47.5,
+   "net_contents": "750 mL",
+   "bottler": "Stone's Throw Distilling Co, Denver, CO",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_1_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "wine_ok_1",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_1_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "wine_ok_1",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_1_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "wine_ok_1",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_1_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "wine_ok_1",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_1_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "wine_ok_1",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_2_import_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "wine_ok_2_import",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_2_import_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "wine_ok_2_import",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_2_import_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "wine_ok_2_import",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_2_import_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "wine_ok_2_import",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_2_import_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "wine_ok_2_import",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_3_exempt_abv_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "wine_ok_3_exempt_abv",
+   "brand": "Meadow Table",
+   "class_type": "Table Wine",
+   "abv_percent": null,
+   "net_contents": "750 mL",
+   "bottler": "Meadow Table Cellars, Prosser, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_3_exempt_abv_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "wine_ok_3_exempt_abv",
+   "brand": "Meadow Table",
+   "class_type": "Table Wine",
+   "abv_percent": null,
+   "net_contents": "750 mL",
+   "bottler": "Meadow Table Cellars, Prosser, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_3_exempt_abv_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "wine_ok_3_exempt_abv",
+   "brand": "Meadow Table",
+   "class_type": "Table Wine",
+   "abv_percent": null,
+   "net_contents": "750 mL",
+   "bottler": "Meadow Table Cellars, Prosser, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_3_exempt_abv_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "wine_ok_3_exempt_abv",
+   "brand": "Meadow Table",
+   "class_type": "Table Wine",
+   "abv_percent": null,
+   "net_contents": "750 mL",
+   "bottler": "Meadow Table Cellars, Prosser, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "wine_ok_3_exempt_abv_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "wine_ok_3_exempt_abv",
+   "brand": "Meadow Table",
+   "class_type": "Table Wine",
+   "abv_percent": null,
+   "net_contents": "750 mL",
+   "bottler": "Meadow Table Cellars, Prosser, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_1_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "beer_ok_1",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_1_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "beer_ok_1",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_1_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "beer_ok_1",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_1_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "beer_ok_1",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_1_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "beer_ok_1",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_2_import_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "beer_ok_2_import",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_2_import_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "beer_ok_2_import",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_2_import_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "beer_ok_2_import",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_2_import_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "beer_ok_2_import",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_2_import_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "beer_ok_2_import",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_3_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "beer_ok_3",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_3_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "beer_ok_3",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_3_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "beer_ok_3",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_3_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "beer_ok_3",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "beer_ok_3_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "beer_ok_3",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {},
+  "overall": "PASS"
+ },
+ {
+  "file": "def_warning_title_case_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_warning_title_case",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_title_case_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_warning_title_case",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_title_case_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_warning_title_case",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_title_case_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_warning_title_case",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_title_case_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_warning_title_case",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_wording_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_warning_wording",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_wording_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_warning_wording",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_wording_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_warning_wording",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_wording_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_warning_wording",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_wording_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_warning_wording",
+   "brand": "SILVER CREEK VODKA",
+   "class_type": "Vodka",
+   "abv_percent": 40,
+   "net_contents": "1 L",
+   "bottler": "Silver Creek Spirits, Austin, TX",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_abv_wrong_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_abv_wrong",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_abv_wrong_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_abv_wrong",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_abv_wrong_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_abv_wrong",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_abv_wrong_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_abv_wrong",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_abv_wrong_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_abv_wrong",
+   "brand": "OLD TOM DISTILLERY",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_proof_mismatch_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_proof_mismatch",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_proof_mismatch_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_proof_mismatch",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_proof_mismatch_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_proof_mismatch",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_proof_mismatch_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_proof_mismatch",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_proof_mismatch_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_proof_mismatch",
+   "brand": "Glen Marrow",
+   "class_type": "Single Malt Scotch Whisky",
+   "abv_percent": 43,
+   "net_contents": "750 mL",
+   "bottler": "Glen Marrow Distillers Ltd, Speyside",
+   "is_import": true,
+   "origin_country": "Scotland",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "abv": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_contents_missing_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_contents_missing",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "net_contents": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_contents_missing_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_contents_missing",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "net_contents": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_contents_missing_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_contents_missing",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "net_contents": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_contents_missing_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_contents_missing",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "net_contents": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_contents_missing_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_contents_missing",
+   "brand": "Harbor Ridge",
+   "class_type": "Cabernet Sauvignon",
+   "abv_percent": 13.5,
+   "net_contents": "750 mL",
+   "bottler": "Harbor Ridge Winery, Walla Walla, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "net_contents": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_brand_wrong_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_brand_wrong",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "brand": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_brand_wrong_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_brand_wrong",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "brand": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_brand_wrong_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_brand_wrong",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "brand": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_brand_wrong_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_brand_wrong",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "brand": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_brand_wrong_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_brand_wrong",
+   "brand": "Puget Pale Ale",
+   "class_type": "Ale",
+   "abv_percent": 5.5,
+   "net_contents": "12 fl oz",
+   "bottler": "Kitsap Brewing Co, Bremerton, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "brand": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_brand_near_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_brand_near",
+   "brand": "Old Tom Distillers",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "brand": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_brand_near_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_brand_near",
+   "brand": "Old Tom Distillers",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "brand": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_brand_near_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_brand_near",
+   "brand": "Old Tom Distillers",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "brand": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_brand_near_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_brand_near",
+   "brand": "Old Tom Distillers",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "brand": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_brand_near_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_brand_near",
+   "brand": "Old Tom Distillers",
+   "class_type": "Kentucky Straight Bourbon Whiskey",
+   "abv_percent": 45,
+   "net_contents": "750 mL",
+   "bottler": "Old Tom Distillery, Bardstown, KY",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "spirits"
+  },
+  "expect": {
+   "brand": "REVIEW"
+  },
+  "overall": "REVIEW"
+ },
+ {
+  "file": "def_origin_missing_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_origin_missing",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "origin": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_origin_missing_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_origin_missing",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "origin": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_origin_missing_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_origin_missing",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "origin": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_origin_missing_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_origin_missing",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "origin": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_origin_missing_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_origin_missing",
+   "brand": "Domaine Vallon",
+   "class_type": "Red Wine",
+   "abv_percent": 12.5,
+   "net_contents": "750 mL",
+   "bottler": "Domaine Vallon, Bordeaux",
+   "is_import": true,
+   "origin_country": "France",
+   "beverage_type": "wine"
+  },
+  "expect": {
+   "origin": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_bottler_missing_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_bottler_missing",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "bottler": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_bottler_missing_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_bottler_missing",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "bottler": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_bottler_missing_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_bottler_missing",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "bottler": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_bottler_missing_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_bottler_missing",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "bottler": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_bottler_missing_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_bottler_missing",
+   "brand": "NORTHWIND STOUT",
+   "class_type": "Stout",
+   "abv_percent": 7,
+   "net_contents": "22 fl oz",
+   "bottler": "Northwind Brewery, Tacoma, WA",
+   "is_import": false,
+   "origin_country": "",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "bottler": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_missing_clean.png",
+  "variant": "clean",
+  "application": {
+   "application_id": "def_warning_missing",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_missing_rot.png",
+  "variant": "rot",
+  "application": {
+   "application_id": "def_warning_missing",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_missing_blur.png",
+  "variant": "blur",
+  "application": {
+   "application_id": "def_warning_missing",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_missing_glare.png",
+  "variant": "glare",
+  "application": {
+   "application_id": "def_warning_missing",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ },
+ {
+  "file": "def_warning_missing_jpg40.jpg",
+  "variant": "jpg40",
+  "application": {
+   "application_id": "def_warning_missing",
+   "brand": "Kaiser Pils",
+   "class_type": "Pilsner",
+   "abv_percent": 4.8,
+   "net_contents": "500 mL",
+   "bottler": "Kaiser Brauerei, Munich",
+   "is_import": true,
+   "origin_country": "Germany",
+   "beverage_type": "beer"
+  },
+  "expect": {
+   "warning": "FAIL"
+  },
+  "overall": "FAIL"
+ }
+]

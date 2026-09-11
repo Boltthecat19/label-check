@@ -1,0 +1,204 @@
+# Synthetic test labels. `expect` lists field statuses that differ from PASS; `overall` is the verdict.
+- id: spirits_ok_1
+  beverage_type: spirits
+  brand: OLD TOM DISTILLERY
+  class_type: Kentucky Straight Bourbon Whiskey
+  abv: 45
+  proof: 90
+  net_contents: 750 mL
+  bottler: Old Tom Distillery, Bardstown, KY
+  overall: PASS
+- id: spirits_ok_2_import
+  beverage_type: spirits
+  brand: Glen Marrow
+  class_type: Single Malt Scotch Whisky
+  abv: 43
+  proof: 86
+  net_contents: 750 mL
+  bottler: Glen Marrow Distillers Ltd, Speyside
+  is_import: true
+  origin_country: Scotland
+  overall: PASS
+- id: spirits_ok_3_liter
+  beverage_type: spirits
+  brand: SILVER CREEK VODKA
+  class_type: Vodka
+  abv: 40
+  proof: 80
+  net_contents: 1 L
+  bottler: Silver Creek Spirits, Austin, TX
+  overall: PASS
+- id: spirits_ok_4_case
+  beverage_type: spirits
+  brand: Stone's Throw
+  label_brand: STONE'S THROW
+  class_type: Straight Rye Whiskey
+  abv: 47.5
+  proof: 95
+  net_contents: 750 mL
+  bottler: Stone's Throw Distilling Co, Denver, CO
+  overall: PASS
+- id: wine_ok_1
+  beverage_type: wine
+  brand: Harbor Ridge
+  class_type: Cabernet Sauvignon
+  abv: 13.5
+  net_contents: 750 mL
+  bottler: Harbor Ridge Winery, Walla Walla, WA
+  overall: PASS
+- id: wine_ok_2_import
+  beverage_type: wine
+  brand: Domaine Vallon
+  class_type: Red Wine
+  abv: 12.5
+  net_contents: 750 mL
+  bottler: Domaine Vallon, Bordeaux
+  is_import: true
+  origin_country: France
+  overall: PASS
+- id: wine_ok_3_exempt_abv
+  beverage_type: wine
+  brand: Meadow Table
+  class_type: Table Wine
+  abv: null
+  net_contents: 750 mL
+  bottler: Meadow Table Cellars, Prosser, WA
+  overall: PASS
+- id: beer_ok_1
+  beverage_type: beer
+  brand: Puget Pale Ale
+  class_type: Ale
+  abv: 5.5
+  net_contents: 12 fl oz
+  bottler: Kitsap Brewing Co, Bremerton, WA
+  overall: PASS
+- id: beer_ok_2_import
+  beverage_type: beer
+  brand: Kaiser Pils
+  class_type: Pilsner
+  abv: 4.8
+  net_contents: 500 mL
+  bottler: Kaiser Brauerei, Munich
+  is_import: true
+  origin_country: Germany
+  overall: PASS
+- id: beer_ok_3
+  beverage_type: beer
+  brand: NORTHWIND STOUT
+  class_type: Stout
+  abv: 7
+  net_contents: 22 fl oz
+  bottler: Northwind Brewery, Tacoma, WA
+  overall: PASS
+
+- id: def_warning_title_case
+  beverage_type: spirits
+  brand: OLD TOM DISTILLERY
+  class_type: Kentucky Straight Bourbon Whiskey
+  abv: 45
+  proof: 90
+  net_contents: 750 mL
+  bottler: Old Tom Distillery, Bardstown, KY
+  defect: warning_title_case
+  expect: {warning: FAIL}
+  overall: FAIL
+- id: def_warning_wording
+  beverage_type: spirits
+  brand: SILVER CREEK VODKA
+  class_type: Vodka
+  abv: 40
+  proof: 80
+  net_contents: 1 L
+  bottler: Silver Creek Spirits, Austin, TX
+  defect: warning_wording
+  expect: {warning: FAIL}
+  overall: FAIL
+- id: def_abv_wrong
+  beverage_type: spirits
+  brand: OLD TOM DISTILLERY
+  class_type: Kentucky Straight Bourbon Whiskey
+  abv: 45
+  proof: 90
+  net_contents: 750 mL
+  bottler: Old Tom Distillery, Bardstown, KY
+  defect: abv_wrong
+  expect: {abv: FAIL}
+  overall: FAIL
+- id: def_proof_mismatch
+  beverage_type: spirits
+  brand: Glen Marrow
+  class_type: Single Malt Scotch Whisky
+  abv: 43
+  proof: 86
+  net_contents: 750 mL
+  bottler: Glen Marrow Distillers Ltd, Speyside
+  is_import: true
+  origin_country: Scotland
+  defect: proof_mismatch
+  expect: {abv: REVIEW}
+  overall: REVIEW
+- id: def_contents_missing
+  beverage_type: wine
+  brand: Harbor Ridge
+  class_type: Cabernet Sauvignon
+  abv: 13.5
+  net_contents: 750 mL
+  bottler: Harbor Ridge Winery, Walla Walla, WA
+  defect: contents_missing
+  expect: {net_contents: REVIEW}
+  overall: REVIEW
+- id: def_brand_wrong
+  beverage_type: beer
+  brand: Puget Pale Ale
+  class_type: Ale
+  abv: 5.5
+  net_contents: 12 fl oz
+  bottler: Kitsap Brewing Co, Bremerton, WA
+  defect: brand_wrong
+  expect: {brand: FAIL}
+  overall: FAIL
+- id: def_brand_near
+  beverage_type: spirits
+  brand: Old Tom Distillers
+  class_type: Kentucky Straight Bourbon Whiskey
+  abv: 45
+  proof: 90
+  net_contents: 750 mL
+  bottler: Old Tom Distillery, Bardstown, KY
+  defect: brand_near
+  expect: {brand: REVIEW}
+  overall: REVIEW
+- id: def_origin_missing
+  beverage_type: wine
+  brand: Domaine Vallon
+  class_type: Red Wine
+  abv: 12.5
+  net_contents: 750 mL
+  bottler: Domaine Vallon, Bordeaux
+  is_import: true
+  origin_country: France
+  defect: origin_missing
+  expect: {origin: FAIL}
+  overall: FAIL
+- id: def_bottler_missing
+  beverage_type: beer
+  brand: NORTHWIND STOUT
+  class_type: Stout
+  abv: 7
+  net_contents: 22 fl oz
+  bottler: Northwind Brewery, Tacoma, WA
+  defect: bottler_missing
+  expect: {bottler: FAIL}
+  overall: FAIL
+- id: def_warning_missing
+  beverage_type: beer
+  brand: Kaiser Pils
+  class_type: Pilsner
+  abv: 4.8
+  net_contents: 500 mL
+  bottler: Kaiser Brauerei, Munich
+  is_import: true
+  origin_country: Germany
+  defect: warning_missing
+  expect: {warning: FAIL}
+  overall: FAIL

@@ -22,7 +22,7 @@ def _data(img: np.ndarray, psm: int) -> dict:
 
 def run_ocr(img: np.ndarray) -> OcrResult:
     t0 = time.perf_counter()
-    psm = 6
+    psm = 3  # automatic layout: keeps oversized brand lines that psm 6 drops
     data = _data(img, psm)
     words = [w for w, c in zip(data["text"], data["conf"]) if str(w).strip() and float(c) >= 0]
     if len(words) < 20:

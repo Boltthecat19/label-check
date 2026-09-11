@@ -16,25 +16,30 @@ PASS_AT = 92
 REVIEW_AT = 75
 
 
-def _best_line(needle: str, lines: list[str]) -> tuple[int, int]:
+def _best_line(needle: str, lines: list[str]) -> tuple[int, int, bool]:
+    """Return (score, index, exact_words). A line containing every brand word wins outright;
+    otherwise the closest line by token_sort_ratio, which does not reward partial overlap."""
+    words = set(needle.split())
+    for i, line in enumerate(lines):
+        if words and words <= set(line.split()):
+            return 100, i, True
     best, idx = 0, -1
     for i, line in enumerate(lines):
-        s = fuzz.token_set_ratio(needle, line)
+        s = fuzz.token_sort_ratio(needle, line)
         if s > best:
             best, idx = s, i
-    return best, idx
+    return best, idx, False
 
 
 def check_brand(expected: str, ocr_text: str) -> FieldResult:
     exp_n = normalize(expected)
     raw_lines = [normalize_keep_case(line) for line in ocr_text.splitlines() if line.strip()]
     lines = [normalize(line) for line in raw_lines]
-    score, idx = _best_line(exp_n, lines)
+    score, idx, exact_words = _best_line(exp_n, lines)
     found = raw_lines[idx] if idx >= 0 else ""
     conf = round(score / 100, 2)
     base = dict(field="brand", expected=expected, found=found, confidence=conf)
-    exact_words = idx >= 0 and set(exp_n.split()) <= set(lines[idx].split())
-    if score >= PASS_AT and exact_words:
+    if exact_words:
         note = ""
         exp_flat = normalize_keep_case(expected)
         if found and found != exp_flat:

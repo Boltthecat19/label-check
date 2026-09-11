@@ -38,11 +38,12 @@ def _deskew(gray: np.ndarray, warnings: list[str]) -> np.ndarray:
     coords = np.column_stack(np.where(inv > 0))
     if len(coords) < 500:
         return gray
-    angle = cv2.minAreaRect(coords.astype(np.float32))[-1]
-    angle = -(90 - angle) if angle > 45 else -angle
+    raw = cv2.minAreaRect(coords.astype(np.float32))[-1]
+    # OpenCV reports the rect angle in (-90, 0] or (0, 90] depending on version; fold to a skew.
+    angle = 90 + raw if raw < -45 else (raw - 90 if raw > 45 else raw)
     if abs(angle) < 1 or abs(angle) > 15:
         return gray
     h, w = gray.shape
-    m = cv2.getRotationMatrix2D((w // 2, h // 2), angle, 1.0)
+    m = cv2.getRotationMatrix2D((w // 2, h // 2), -angle, 1.0)
     warnings.append(f"The image was rotated {abs(angle):.1f} degrees to straighten the text.")
     return cv2.warpAffine(gray, m, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
