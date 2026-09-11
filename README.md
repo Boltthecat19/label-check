@@ -1,61 +1,57 @@
 # Label Check
 
-Compares an alcohol label image to the fields on its COLA application and reports, field by field, whether they match. Runs entirely on the machine it is installed on: no cloud APIs, no accounts, nothing stored after the check. One label takes about a second on a laptop CPU.
+Checks an alcohol label image against its COLA application, field by field, in about a second. Runs entirely on the machine it is installed on. No cloud calls, no accounts, nothing kept after the check.
 
-Built as a take-home prototype for the TTB label review workflow. Not affiliated with TTB.
+Prototype for the TTB label review workflow. Not affiliated with TTB.
 
-## Run it
-
-Requires Docker.
+## Run
 
 ```
 docker compose up
 ```
 
-Open http://localhost:8081. That is the complete offline app: OCR plus rule based checks.
+Open http://localhost:8081.
 
-To add the optional local AI second opinion (a small language model that comments on borderline rows), download the model once and start the profile:
+Optional local AI second opinion on borderline rows (a small language model, about 1 GB, still nothing leaves the machine):
 
 ```
-./tools/get_model.sh                       # about 1 GB, one time
+./tools/get_model.sh
 LLM_BASE_URL=http://llm:8080/v1 docker compose --profile llm up
 ```
 
-Nothing leaves the machine in either mode.
+## Use
 
-## Use it
+**One label.** Enter the application fields, choose the label image, press the button. One row per field: PASS, REVIEW, or FAIL, with what the application said, what the label said, and why. REVIEW means an agent should look.
 
-**One label.** Type the application fields into Step 1, choose the label image in Step 2, press the button. You get one row per field: PASS, REVIEW, or FAIL, with what the application said, what the label said, and a note. REVIEW means the tool is not sure and an agent should look. The time taken is shown on every result.
+**Many labels.** Upload a CSV and the images it names. You get a table and a CSV download.
 
-**Many labels.** Open "Many labels". Choose a CSV with one row per application and a folder of images, and the tool checks them all and gives you a table and a CSV download.
+CSV columns: `application_id, image, brand, class_type, abv_percent, net_contents, bottler, is_import, origin_country, beverage_type`. Only `brand` and `image` are required. `is_import` is yes or no. `beverage_type` is spirits, wine, or beer.
 
-CSV columns: `application_id, image, brand, class_type, abv_percent, net_contents, bottler, is_import, origin_country, beverage_type`. Only `brand` and `image` are required. `image` is the file name of that row's label. `is_import` is yes or no. `beverage_type` is spirits, wine, or beer. A sample sheet and images are produced by the test label generator (below).
+## Checks
 
-## What it checks
-
-| Field | How |
+| Field | Rule |
 |---|---|
-| Brand name | Case and punctuation ignored. Every word of the brand must appear on one line of the label to pass. Close spellings go to REVIEW. |
-| Alcohol content | Reads the percent and the proof if present; proof must be twice the percent. Missing on spirits fails; missing on beer or wine goes to REVIEW because exemptions exist. |
-| Net contents | Reads mL, L, cL, or fl oz and compares in millilitres. |
-| Bottler or producer | Name must match and a "bottled by" style phrase must be present. |
-| Country of origin | Only checked when the application marks an import. |
-| Government warning | Must be present, the header must read GOVERNMENT WARNING: in capitals, and the wording must be exact. Single letter OCR misreads go to REVIEW; changed words fail. Bold cannot be seen by OCR and the result says so. |
+| Brand | Case and punctuation ignored. Every word must appear on one label line. Near spellings are REVIEW. |
+| Alcohol content | Percent, plus proof if shown; proof must be twice the percent. Missing fails on spirits, REVIEW on beer and wine. |
+| Net contents | mL, L, cL, or fl oz, compared in millilitres. |
+| Bottler | Name must match and a "bottled by" style phrase must be present. |
+| Country of origin | Checked only for imports. |
+| Government warning | Present, header in capitals, wording exact. One letter OCR slips are REVIEW; changed words fail. Bold cannot be seen by OCR and the result says so. |
 
-## Run the tests
+## Tests
 
 ```
 python -m venv .venv && .venv/bin/pip install -e ".[dev]"
-.venv/bin/python tools/make_labels.py tests/fixtures     # renders 100 synthetic labels
+.venv/bin/python tools/make_labels.py tests/fixtures
 .venv/bin/pytest
 ```
 
-The synthetic set is 20 labels across spirits, wine, and beer, half correct and half with one seeded defect each, times five photo conditions: clean, rotated, blurred, glare, and heavy JPEG compression. Tests assert every clean label gets the right verdict, no defect is ever passed on a noisy photo, and the 95th percentile time stays under five seconds.
+100 synthetic labels: 20 applications, half with a seeded defect, under five photo conditions (clean, rotated, blurred, glare, heavy JPEG). Tests require every clean label to get the right verdict, no defect to pass on a noisy photo, and 95th percentile time under five seconds.
 
 ## Deployed prototype
 
-URL: to be added at deployment.
+To be added.
 
-## Limitations
+## Design and limits
 
-See APPROACH.md for the decisions, the tradeoffs, and what a production version would need.
+See APPROACH.md.
