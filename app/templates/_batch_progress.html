@@ -1,0 +1,5 @@
+<section class="result" hx-get="/batch/{{ job.id }}" hx-trigger="every 1s" hx-swap="outerHTML">
+  <h2>Checking {{ job.total }} labels</h2>
+  <progress value="{{ job.done }}" max="{{ job.total }}"></progress>
+  <p>{{ job.done }} of {{ job.total }} done.</p>
+</section>

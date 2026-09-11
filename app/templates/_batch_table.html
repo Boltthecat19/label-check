@@ -1,0 +1,19 @@
+<section class="result">
+  <h2>Checked {{ job.total }} labels</h2>
+  <p><a class="primary-link" href="/batch/{{ job.id }}/export">Download results as CSV</a></p>
+  {% for e in job.errors %}<p class="warn">{{ e }}</p>{% endfor %}
+  <table>
+    <thead><tr><th>Application</th><th>Result</th><th>Needs a look</th><th>Time</th></tr></thead>
+    <tbody>
+    {% for v in job.verdicts %}
+      {% set flagged = v.results | rejectattr("status", "equalto", "PASS") | rejectattr("status", "equalto", "NOT_CHECKED") | list %}
+      <tr>
+        <td>{{ v.application_id }}</td>
+        <td><span class="{{ v.overall|lower if v.results else 'fail' }}">{{ v.overall if v.results else "ERROR" }}</span></td>
+        <td>{% for r in flagged %}<div><strong>{{ field_names.get(r.field, r.field) }}</strong>: {{ r.note or r.status }}</div>{% endfor %}{% for w in v.warnings %}<div class="warn">{{ w }}</div>{% endfor %}</td>
+        <td>{{ "%.1f"|format(v.processing_ms / 1000) }} s</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>

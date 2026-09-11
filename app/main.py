@@ -4,10 +4,11 @@ from pathlib import Path
 
 import pytesseract
 from fastapi import FastAPI, File, Form, Request, UploadFile
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
+from labelcheck.batch import CSV_COLUMNS, BatchStore, export_csv, parse_csv
 from labelcheck.llm import get_llm
 from labelcheck.models import Application, BeverageType
 from labelcheck.verify import verify
@@ -24,6 +25,7 @@ app = FastAPI(title="Label Check", version=VERSION)
 app.mount("/static", StaticFiles(directory=BASE / "static"), name="static")
 tpl = Jinja2Templates(directory=BASE / "templates")
 tpl.env.globals["field_names"] = FIELD_NAMES
+batches = BatchStore()
 
 
 def _error(request: Request, message: str) -> HTMLResponse:
@@ -75,3 +77,46 @@ async def do_verify(
     return tpl.TemplateResponse(
         request, "_result.html", {"v": verdict, "seconds": f"{verdict.processing_ms / 1000:.1f}"}
     )
+
+
+@app.get("/batch", response_class=HTMLResponse)
+def batch_page(request: Request):
+    return tpl.TemplateResponse(request, "batch.html", {"columns": CSV_COLUMNS})
+
+
+@app.post("/batch", response_class=HTMLResponse)
+async def batch_start(request: Request, sheet: UploadFile = File(...), images: list[UploadFile] = File(...)):
+    try:
+        apps = parse_csv(await sheet.read())
+    except (ValueError, UnicodeDecodeError) as e:
+        return _error(request, f"We could not use that spreadsheet. {e}")
+    files: dict[str, bytes] = {}
+    for up in images:
+        data = await up.read()
+        if len(data) > MAX_BYTES:
+            return _error(request, f"{up.filename} is larger than 10 MB. Please use smaller images.")
+        files[Path(up.filename or "").name] = data
+    missing = [a.image for a in apps if a.image not in files]
+    if len(missing) == len(apps):
+        return _error(request, "None of the image names in the spreadsheet match the uploaded files.")
+    job_id = batches.create(apps, files, llm=get_llm())
+    return tpl.TemplateResponse(request, "_batch_progress.html", {"job": batches.get(job_id)})
+
+
+@app.get("/batch/{job_id}", response_class=HTMLResponse)
+def batch_status(request: Request, job_id: str):
+    job = batches.get(job_id)
+    if job is None:
+        return _error(request, "That batch has expired or does not exist. Batches are kept for one hour.")
+    if not job.finished:
+        return tpl.TemplateResponse(request, "_batch_progress.html", {"job": job})
+    return tpl.TemplateResponse(request, "_batch_table.html", {"job": job})
+
+
+@app.get("/batch/{job_id}/export")
+def batch_export(job_id: str):
+    job = batches.get(job_id)
+    if job is None:
+        return PlainTextResponse("Batch not found.", status_code=404)
+    return PlainTextResponse(export_csv(job), media_type="text/csv",
+                             headers={"Content-Disposition": f'attachment; filename="labelcheck-{job_id}.csv"'})
