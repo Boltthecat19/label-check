@@ -12,6 +12,8 @@ from labelcheck.rules.contents import check_contents
 from labelcheck.rules.origin import check_origin
 from labelcheck.rules.warning import check_warning
 
+LLM_DEADLINE_S = 2.0  # each model call may take up to 3 s, so total stays under 5 s
+
 
 def verify(app: Application, image_bytes: bytes, llm=None) -> Verdict:
     t0 = time.perf_counter()
@@ -28,8 +30,9 @@ def verify(app: Application, image_bytes: bytes, llm=None) -> Verdict:
         check_warning(ocr.text),
     ]
     if llm is not None:
+        # The five second budget wins: ask the model only while there is time left for an answer.
         for r in results:
-            if r.status == Status.REVIEW:
+            if r.status == Status.REVIEW and (time.perf_counter() - t0) < LLM_DEADLINE_S:
                 opinion = llm.opinion(r, ocr.text)
                 if opinion:
                     r.note = (r.note + " AI opinion: " + opinion).strip()
