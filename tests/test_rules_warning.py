@@ -53,3 +53,8 @@ def test_origin_pass():
 
 def test_origin_fail():
     assert check_origin(True, "Scotland", "OLD TOM").status == Status.FAIL
+
+
+def test_warning_semicolon_after_header_is_review_not_fail():
+    r = check_warning(WARNING_TEXT.replace("GOVERNMENT WARNING:", "GOVERNMENT WARNING;"))
+    assert r.status == Status.REVIEW and "colon" in r.note

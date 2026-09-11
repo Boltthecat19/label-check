@@ -7,6 +7,7 @@ says so instead of pretending.
 """
 
 import difflib
+import re
 
 from rapidfuzz import fuzz
 from rapidfuzz.distance import Levenshtein
@@ -43,14 +44,22 @@ def check_warning(ocr_text_raw: str) -> FieldResult:
             field="warning", status=Status.FAIL, expected=WARNING_TEXT, found=seg[:120],
             note="Government warning statement not found on the label." + _BOLD,
         )
-    if not seg.startswith(_HEADER):
+    header = re.match(r"GOVERNMENT WARNING([:;.,]?)", seg)
+    if not header:
         shown = seg[: len(_HEADER)]
         return FieldResult(
             field="warning", status=Status.FAIL, expected=WARNING_TEXT, found=seg[:160], confidence=0.9,
             note=f"Header must read exactly 'GOVERNMENT WARNING:' in all caps; the label shows '{shown}'." + _BOLD,
         )
+    punct = header.group(1)
+    punct_note = "" if punct == ":" else f" The colon after the header was read as '{punct or ' '}'; confirm it is a colon."
     exp_n, seg_n = normalize(WARNING_TEXT), normalize(seg)
     if seg_n.startswith(exp_n):
+        if punct_note:
+            return FieldResult(
+                field="warning", status=Status.REVIEW, expected=WARNING_TEXT,
+                found=seg[: len(WARNING_TEXT)], confidence=0.95, note="Statement text is exact." + punct_note + _BOLD,
+            )
         return FieldResult(
             field="warning", status=Status.PASS, expected=WARNING_TEXT,
             found=seg[: len(WARNING_TEXT)], confidence=1.0, note="Statement text is exact." + _BOLD,
