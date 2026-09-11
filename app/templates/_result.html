@@ -1,0 +1,20 @@
+<section class="result">
+  <h2>Result: <span class="{{ v.overall|lower }}">{{ v.overall }}</span></h2>
+  <p>Checked in {{ seconds }} seconds.</p>
+  {% for w in v.warnings %}<p class="warn">{{ w }}</p>{% endfor %}
+  <table>
+    <thead><tr><th>Field</th><th>Result</th><th>On the application</th><th>On the label</th><th>Note</th></tr></thead>
+    <tbody>
+    {% for r in v.results %}
+      <tr>
+        <td>{{ field_names.get(r.field, r.field) }}</td>
+        <td><span class="{{ r.status|lower }}">{{ "Not needed" if r.status == "NOT_CHECKED" else r.status }}</span></td>
+        <td>{{ r.expected[:90] }}{% if r.expected|length > 90 %}…{% endif %}</td>
+        <td>{{ r.found[:90] }}{% if r.found|length > 90 %}…{% endif %}</td>
+        <td>{{ r.note }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <details><summary>Text we read from the label</summary><pre>{{ v.ocr_text }}</pre></details>
+</section>
