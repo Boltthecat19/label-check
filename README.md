@@ -50,7 +50,7 @@ python -m venv .venv && .venv/bin/pip install -e ".[dev]"
 
 ## Deployed prototype
 
-To be added.
+https://boltsplex.tail99f1df.ts.net:8443 (prototype hosting on a home server behind Tailscale Funnel; the same Compose file runs anywhere Docker does).
 
 ## Design and limits
 
