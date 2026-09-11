@@ -1,0 +1,19 @@
+[project]
+name = "labelcheck"
+version = "0.1.0"
+description = "Verify alcohol label images against COLA application fields, offline, in under five seconds."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115", "uvicorn[standard]>=0.30", "jinja2>=3.1", "python-multipart>=0.0.9",
+  "pydantic>=2.7", "opencv-python-headless>=4.10", "pytesseract>=0.3.13", "rapidfuzz>=3.9",
+  "Pillow>=10.4", "PyYAML>=6.0", "httpx>=0.27", "numpy>=1.26",
+]
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "pytest-timeout>=2.3"]
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[tool.setuptools.packages.find]
+include = ["labelcheck*", "app*"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
